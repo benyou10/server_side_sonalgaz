@@ -1,16 +1,16 @@
 package com.dailycodebuffer.usersystem.service;
 
-import com.dailycodebuffer.usersystem.model.User;
+import com.dailycodebuffer.usersystem.model.Employee;
 
 import java.util.List;
 
 public interface UserService {
-    User saveUser(User user);
-    List<User> getAllUsers();
+    Employee saveUser(Employee user);
+    List<Employee> getAllUsers();
 
-    User getUserById(Long id);
+    Employee getUserById(int id);
 
-    boolean deleteUser(Long id);
+    boolean deleteUser(int id);
 
-    User upddateUser(Long id, User user);
+    Employee upddateUser(int id, Employee user);
 }

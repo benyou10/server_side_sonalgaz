@@ -1,6 +1,6 @@
 package com.dailycodebuffer.usersystem.controller;
 
-import com.dailycodebuffer.usersystem.model.User;
+import com.dailycodebuffer.usersystem.model.Employee;
 import com.dailycodebuffer.usersystem.service.UserService;
 import jakarta.persistence.Id;
 import org.springframework.http.ResponseEntity;
@@ -21,21 +21,21 @@ public class UserCantroller {
         this.userService = userService;
     }
     @PostMapping("/users")
-    public User saveUser(@RequestBody User user){
+    public Employee saveUser(@RequestBody Employee user){
        return userService.saveUser(user);
     }
     @GetMapping("/users")
-    public List<User> getAllUsers(){
+    public List<Employee> getAllUsers(){
     return  userService.getAllUsers();
     }
     @GetMapping("/users/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable("id") Long id){
-        User user=null;
+    public ResponseEntity<Employee> getUserById(@PathVariable("id") int id){
+        Employee user=null;
         user =userService.getUserById(id);
         return  ResponseEntity.ok(user);
     }
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<Map<String,Boolean>> deleteUser(@PathVariable("id") Long id){
+    public ResponseEntity<Map<String,Boolean>> deleteUser(@PathVariable("id") int id){
         boolean deleted=false;
         deleted= userService.deleteUser(id);
         Map<String,Boolean> response= new HashMap<>();
@@ -43,8 +43,8 @@ public class UserCantroller {
         return ResponseEntity.ok(response);
     }
     @PutMapping("/users/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable("id") Long id,
-                                           @RequestBody User user){
+    public ResponseEntity<Employee> updateUser(@PathVariable("id") int id,
+                                           @RequestBody Employee user){
         user =userService.upddateUser(id, user);
         return ResponseEntity.ok(user);
     }
