@@ -1,5 +1,6 @@
 package com.dailycodebuffer.usersystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -44,5 +45,6 @@ public class DepartmentEntity {
     private int id;
     private String department_name;
     @OneToMany (mappedBy = "department")
+    @JsonBackReference
     private List<EmployeeEntity> employees;
 }

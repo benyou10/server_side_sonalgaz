@@ -10,6 +10,24 @@ public class ZktecoDevicesEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String device_name;
+
+    private int password;
+    private String ip_address;
+    private int port;
+
+    @Enumerated(EnumType.STRING)
+    private Connection connection;
+
+    public ZktecoDevicesEntity(int id, String device_name, int password, String ip_address, int port, Connection connection_State) {
+        this.id = id;
+        this.device_name = device_name;
+        this.password = password;
+        this.ip_address = ip_address;
+        this.port = port;
+        this.connection = connection_State;
+    }
+
+
     public String getDeviceName() {
         return this.device_name;
     }
@@ -18,30 +36,13 @@ public class ZktecoDevicesEntity {
         this.device_name = device_name;
     }
 
-    public String getPassword() {
+    public int getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(int password) {
         this.password = password;
     }
-
-    public ZktecoDevicesEntity(int id, String device_name, String password, String ip_address, int port, Connection connection_State) {
-        this.id = id;
-        this.device_name = device_name;
-        this.password = password;
-        this.ip_address = ip_address;
-        this.port = port;
-        this.Connection_State = connection_State;
-    }
-
-
-    private String password;
-    private String ip_address;
-    private int port;
-
-    @Enumerated(EnumType.STRING)
-    private Connection Connection_State;
     public int getId() {
         return id;
     }
@@ -67,11 +68,11 @@ public class ZktecoDevicesEntity {
     }
 
     public Connection getConnection_State() {
-        return Connection_State;
+        return connection;
     }
 
     public void setConnection_State(Connection connection_State) {
-        this.Connection_State = connection_State;
+        this.connection = connection_State;
     }
 
 
